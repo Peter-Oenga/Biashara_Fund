@@ -427,24 +427,30 @@ footer.footer .footer-copyright {
               processData: false,
               contentType: false,
               success: function(response) {
-                  console.log("Response received:", response); // Add this line for debugging
-                  if (typeof response === 'object' && 'success' in response) {
-                      if (response.success) {
-                          alert('Your response has been submitted successfully!');
-                      } else {
-                          alert(response.message || 'There was an error submitting your response. Please try again later.');
-                      }
-                  } else {
-                      console.error("Unexpected response format:", response);
+                  console.log("Response received:", response);
+
+                  try {
+                      var responseObject = JSON.parse(response);
+                      if (typeof responseObject === 'object' && 'success' in responseObject) {
+                          if (responseObject.success) {
+                              alert('Your response has been submitted successfully!');
+                          } else {
+                              alert(responseObject.message || 'There was an error submitting your response. Please try again later.');
+                          }
+                      } 
+                  } catch (e) {
+                      console.error("Error parsing JSON response:", e);
                   }
               },
               error: function(xhr, status, error) {
-                  console.error("AJAX request error:", status, error); // Add this line for debugging
+                  console.error("AJAX request error:", status, error); // Log the error for debugging
               }
           });
       });
   });
 </script>
+
+
 
 
 
