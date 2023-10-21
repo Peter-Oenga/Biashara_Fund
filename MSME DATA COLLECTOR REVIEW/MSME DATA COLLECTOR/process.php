@@ -1,16 +1,22 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$DB_HOST = $_ENV['DB_HOST'];
+$dbUsername =  $_ENV['DB_USERNAME'];
+$dbPassword =  $_ENV['DB_PASSWORD'];
+$dbName =  $_ENV['DB_NAME'];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response = array();
 
-    // Database configuration
-    $host = "localhost";  // Replace with your database host
-    $username = "root";    // Replace with your database username
-    $password = "";    // Replace with your database password
-    $dbname = "biashara_Fund";  // Replace with your database name
-
     // Create a database connection
-    $conn = new mysqli($host, $username, $password, $dbname);
+    $conn = new mysqli($DB_HOST, $dbUsername, $dbPassword, $dbName);
 
     if ($conn->connect_error) {
         $response["success"] = false;
