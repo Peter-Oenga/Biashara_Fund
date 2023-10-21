@@ -217,65 +217,66 @@
                 <input type="submit" name="submit" value="Submit">
 
                 </p>
-                </form>
+            </form>
 
-</div><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script>
-  if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          document.getElementById("coordinates").value = `${latitude}, ${longitude}`;
-      }, function(error) {
-          console.log("Geolocation error:", error);
-      });
-  } else {
-      console.log("Geolocation is not supported in this browser.");
-  }
-</script>
-<script>
-  $(document).ready(function() {
-      $('#form').submit(function(event) {
-          event.preventDefault();
-          var formData = new FormData(this);
-          $.ajax({
-              url: 'process.php',
-              type: 'POST',
-              data: formData,
-              processData: false,
-              contentType: false,
-              success: function(response) {
-                  console.log("Response received:", response);
+  <script>
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            document.getElementById("coordinates").value = `${latitude}, ${longitude}`;
+        }, function(error) {
+            console.log("Geolocation error:", error);
+        });
+    } else {
+        console.log("Geolocation is not supported in this browser.");
+    }
+  </script>
+  <script>
+    $(document).ready(function() {
+        $('#form').submit(function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                url: 'process.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log("Response received:", response);
+    
+                    try {
+                        var responseObject = JSON.parse(response);
+                        if (typeof responseObject === 'object' && 'success' in responseObject) {
+                            if (responseObject.success) {
+                                alert('Your response has been submitted successfully!');
+    
+                                // Redirect to the read.php page after a successful submission
+                                window.location.href = 'read.php';
+                            } else {
+                                alert(responseObject.message || 'There was an error submitting your response. Please try again later.');
+                            }
+                        }
+                    } catch (e) {
+                        console.error("Error parsing JSON response:", e);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX request error:", status, error); // Log the error for debugging
+                }
+            });
+        });
+    });
+  </script>
 
-                  try {
-                      var responseObject = JSON.parse(response);
-                      if (typeof responseObject === 'object' && 'success' in responseObject) {
-                          if (responseObject.success) {
-                              alert('Your response has been submitted successfully!');
-                          } else {
-                              alert(responseObject.message || 'There was an error submitting your response. Please try again later.');
-                          }
-                      } 
-                  } catch (e) {
-                      console.error("Error parsing JSON response:", e);
-                  }
-              },
-              error: function(xhr, status, error) {
-                  console.error("AJAX request error:", status, error); // Log the error for debugging
-              }
-          });
-      });
-  });
-</script>
 
-
-
-
-
-<footer class="footer">
+  <footer class="footer">
     <div class="footer-content">
       <div class="footer-column">
         <h3>About the Nairobi County Biashara Fund</h3>
