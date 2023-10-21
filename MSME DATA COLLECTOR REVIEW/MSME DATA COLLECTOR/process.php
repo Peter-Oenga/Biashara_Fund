@@ -50,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $conn->close();
 
-    header('Location: read.php');
     echo json_encode($response);
 } else {
     $response["success"] = false;
