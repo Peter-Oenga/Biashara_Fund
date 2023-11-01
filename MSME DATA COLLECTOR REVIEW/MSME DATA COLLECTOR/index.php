@@ -14,118 +14,159 @@
   <div class="container">  
     <h1 class="mt-5">Nairobi County Biashara Fund Assessment Questionnaire</h1>
    
-    <form id = "form" action="process.php" method="post">         
-      <div class="form-group">
-          <label for="surname">Surname:</label>
-          <input type="text" class="form-control" name="surname" id="surname">
-      </div>
-      <div class="form-group">
-          <label for="first_name">First name:</label>
-          <input type="text" class="form-control" name="first_name" id="first_name">
-      </div>
-      <div class="form-group">
-          <label for="other_name">Other name:</label>
-          <input type="text" class="form-control" name="other_name" id="other_name">
-      </div>
-      <div class="form-group">
-          <label for="identification_number">Identification Number:</label>
-          <input type="number" class="form-control" name="identification_number" id="identification_number">
-      </div>
-      <div class="form-group">
-          <label for="date_of_birth">Date of Birth (Day/Month/Year):</label>
-          <input type="date" class="form-control" name="date_of_birth" id="date_of_birth">
-      </div>
-      <div class="form-group">
-          <label for="gender">Gender:</label>
-          <select class="form-control" name="gender" id="gender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-          </select>
-      </div>
-      <div class="form-group">
-          <label for="disability">Do you have any disability? If yes, specify:</label>
-          <select class="form-control" name="disability" id="disability">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-          </select>
-          <input type="text" class="form-control" name="disability_specification" id="disability_specification" style="display:none;">
-      </div>
-      <div class="form-group">
-        <label for="area_of_residence">What's your area of residence?</label>
-        <select class="form-control" name="area_of_residence" id="area_of_residence">
-            <option value="">SELECT WARD</option>
-            <optgroup label="Embakasi">
-                <option value="Embakasi Central">Embakasi Central</option>
-                <option value="Embakasi East">Embakasi East</option>
-                <option value="Embakasi North">Embakasi North</option>
-                <option value="Embakasi South">Embakasi South</option>
-                <option value="Embakasi West">Embakasi West</option>
-            </optgroup>
-            <optgroup label="Kasarani">
-                <option value="Kasarani Central">Kasarani Central</option>
-                <option value="Kasarani North">Kasarani North</option>
-                <option value="Kasarani South">Kasarani South</option>
-            </optgroup>
-            <optgroup label="Kiambu">
-                <option value="Kiambu Central">Kiambu Central</option>
-                <option value="Kiambu East">Kiambu East</option>
-                <option value="Kiambu North">Kiambu North</option>
-                <option value="Kiambu South">Kiambu South</option>
-          </optgroup>
-          <optgroup label="Kibra">
-            <option value="Kibra">Kibra</option>
-          </optgroup>
-          <optgroup label="Makadara">
-            <option value="Makadara Central">Makadara Central</option>
-            <option value="Makadara East">Makadara East</option>
-            <option value="Makadara North">Makadara North</option>
-            <option value="Makadara South">Makadara South</option>
-          </optgroup>
-          <optgroup label="Mathare">
-            <option value="Mathare North">Mathare North</option>
-            <option value="Mathare South">Mathare South</option>
-          </optgroup>
-          <optgroup label="Muthaiga">
-            <option value="Muthaiga">Muthaiga</option>
-          </optgroup>
-          <optgroup label="Roysambu">
-            <option value="Githurai">Githurai</option>
-            <option value="Kahawa">Kahawa</option>
-            <option value="Kahawa West">Kahawa West</option>
-            <option value="Roysambu">Roysambu</option>
-            <option value="Zimmerman">Zimmerman</option>
-          </optgroup>
-          <optgroup label="Starehe">
-            <option value="Central Business District">Central Business District</option>
-            <option value="Pumwani">Pumwani</option>
-            <option value="Ruaraka">Ruaraka</option>
-            <option value="Shauri Moyo">Shauri Moyo</option>
-          </optgroup>
-          <optgroup label="Westlands">
-            <option value="Highridge">Highridge</option>
-            <option value="Kangemi">Kangemi</option>
-            <option value="Kawangware">Kawangware</option>
-            <option value="Mountain View">Mountain View</option>
-            <option value="Parklands">Parklands</option>
-          </optgroup>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="mobile_number">Mobile Number:</label>
-        <input type="number" class="form-control" name="mobile_number" id="mobile_number">
-      </div>
-      <div class="form-group">
-        <label for="aware_of_fund">Are you aware of Nairobi County Biashara Fund?</label>
-        <select class="form-control" name="aware_of_fund" id="aware_of_fund">
-            <option value=""></option>
+    <form id = "form" action="process.php" method="post">  
+      <section class="" style="display: none;">
+        <h2>Section A: Personal Details</h2>
+        <div class="row">
+          <div class="col-sm-6 col-md-4 col-4">
+            <div class="form-group">
+              <label for="surname">Surname:</label>
+              <input type="text" class="form-control" name="surname" id="surname">
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-4">
+            <div class="form-group">
+              <label for="first_name">First name:</label>
+              <input type="text" class="form-control" name="first_name" id="first_name">
+            </div>            
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-4">
+            <div class="form-group">
+              <label for="other_name">Other name:</label>
+              <input type="text" class="form-control" name="other_name" id="other_name">
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-4">
+            <div class="form-group">
+              <label for="identification_number">ID Number:</label>
+              <input type="number" class="form-control" name="identification_number" id="identification_number">
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-4">
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select class="form-control" class="form-control" name="gender" id="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-4">
+            <div class="form-group">
+              <label for="mobile_number">Mobile Number:</label>
+              <input type="number" class="form-control" name="mobile_number" id="mobile_number">
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label for="date_of_birth">Date of Birth(Month/Day/Year):</label>
+              <input type="date" class="form-control" name="date_of_birth" id="date_of_birth">
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label for="disability">Do you have any disability?Specify if yes:</label>
+              <select class="form-control" class="form-control" name="disability" id="disability">
+                  <option value="">--Select--</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+              </select>
+              <input type="text" class="form-control" name="disability_specification" id="disability_specification" >
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="area_of_residence">What's your area of residence?</label>
+              <select class="form-control" class="form-control" name="area_of_residence" id="area_of_residence">
+                  <option value="">SELECT WARD</option>
+                  <optgroup label="Embakasi">
+                      <option value="Embakasi Central">Embakasi Central</option>
+                      <option value="Embakasi East">Embakasi East</option>
+                      <option value="Embakasi North">Embakasi North</option>
+                      <option value="Embakasi South">Embakasi South</option>
+                      <option value="Embakasi West">Embakasi West</option>
+                  </optgroup>
+                  <optgroup label="Kasarani">
+                      <option value="Kasarani Central">Kasarani Central</option>
+                      <option value="Kasarani North">Kasarani North</option>
+                      <option value="Kasarani South">Kasarani South</option>
+                  </optgroup>
+                  <optgroup label="Kiambu">
+                      <option value="Kiambu Central">Kiambu Central</option>
+                      <option value="Kiambu East">Kiambu East</option>
+                      <option value="Kiambu North">Kiambu North</option>
+                      <option value="Kiambu South">Kiambu South</option>
+                </optgroup>
+                <optgroup label="Kibra">
+                  <option value="Kibra">Kibra</option>
+                </optgroup>
+                <optgroup label="Makadara">
+                  <option value="Makadara Central">Makadara Central</option>
+                  <option value="Makadara East">Makadara East</option>
+                  <option value="Makadara North">Makadara North</option>
+                  <option value="Makadara South">Makadara South</option>
+                </optgroup>
+                <optgroup label="Mathare">
+                  <option value="Mathare North">Mathare North</option>
+                  <option value="Mathare South">Mathare South</option>
+                </optgroup>
+                <optgroup label="Muthaiga">
+                  <option value="Muthaiga">Muthaiga</option>
+                </optgroup>
+                <optgroup label="Roysambu">
+                  <option value="Githurai">Githurai</option>
+                  <option value="Kahawa">Kahawa</option>
+                  <option value="Kahawa West">Kahawa West</option>
+                  <option value="Roysambu">Roysambu</option>
+                  <option value="Zimmerman">Zimmerman</option>
+                </optgroup>
+                <optgroup label="Starehe">
+                  <option value="Central Business District">Central Business District</option>
+                  <option value="Pumwani">Pumwani</option>
+                  <option value="Ruaraka">Ruaraka</option>
+                  <option value="Shauri Moyo">Shauri Moyo</option>
+                </optgroup>
+                <optgroup label="Westlands">
+                  <option value="Highridge">Highridge</option>
+                  <option value="Kangemi">Kangemi</option>
+                  <option value="Kawangware">Kawangware</option>
+                  <option value="Mountain View">Mountain View</option>
+                  <option value="Parklands">Parklands</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-primary" type="button">SECTION B >></button>
+          </div>
+        </div>       
+      </section>
+
+      <section class="" style="display: none;">
+        <h2>Section B: BIASHARA FUND</h2>
+        <div class="form-group">
+          <label for="aware_of_fund">Are you aware of Nairobi County Biashara Fund?</label>
+          <select class="form-control" class="form-control" name="aware_of_fund" id="aware_of_fund">
+            <option value="">--Select--</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
-        </select>
-        </p>
-        <p>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label for="business_type">Which kind of business are you involved in?</label>
-          <select name="business_type" id="business_type">
+          <select class="form-control" class="form-control" name="business_type" id="business_type">
+            <option value="">--Select--</option>
             <option value="agribusinesses_food_supplies">Agribusinesses/food supplies</option>
             <option value="manufacturing_mechanics">Manufacturing/mechanics</option>
             <option value="construction_works">Construction/works</option>
@@ -137,134 +178,100 @@
             <option value="other">Other</option>
           </select>
 
-          <input type="text" name="business_type_other" id="business_type_other" style="display:none;">
-        </p>
-        <p>
+          <input type="text" name="business_type_other" id="business_type_other" >
+        </div>
+
+        <div class="form-group">
           <label for="business_years">How long has your business been in existence?</label>
-          <select name="business_years" id="business_years">
+          <select class="form-control" name="business_years" id="business_years" class="form-control">
+            <option value="">--Select--</option>
             <option value="0_5_years">0-5 years</option>
             <option value="5_10_years">5-10</option>
           </select>
-        </p>
-                  
-        <div id="affirmative_fund_questions" style="display:none;">
-          <p>
-            <label for="affirmative_fund_name">Which affirmative fund did you apply?</label>
-            <input type="text" name="affirmative_fund_name" id="affirmative_fund_name">
-          </p>
-          <p>
-            <label for="affirmative_fund_application_successful">Was your application successful?</label>
-            <select name="affirmative_fund_application_successful" id="affirmative_fund_application_successful">
-              <option value="--Select--">--Select--</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </p>
-          <p>
-            <label for="affirmative_fund_application_unsuccessful_reason">If No to application successful, what was the reason for the failure to succeed in the application of the funds?</label>
-            <input type="text" name="affirmative_fund_application_unsuccessful_reason" id="affirmative_fund_application_unsuccessful_reason">
-          </p>
         </div>
-          
-        <p>
+
+        <div>
+          <button type="button" class="btn btn-primary">Section C >></button>
+        </div>
+                  
+      </section>
+
+      <section class="">  
+        <div id="affirmative_fund_questions" >         
+          <label for="affirmative_fund_name">Which affirmative fund did you apply?</label>
+          <input type="text" name="affirmative_fund_name" id="affirmative_fund_name">
+        </div> 
+        
+        <div class="form-group">
+          <label for="affirmative_fund_application_successful">Was your application successful?</label>
+          <select class="form-control" name="affirmative_fund_application_successful" id="affirmative_fund_application_successful">
+            <option value="--Select--">--Select--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+        </div>
+        
+        <div class="form-group">
+          <label for="affirmative_fund_application_unsuccessful_reason">If No to application successful, what was the reason for the failure to succeed in the application of the funds?</label>
+          <input type="text" name="affirmative_fund_application_unsuccessful_reason" id="affirmative_fund_application_unsuccessful_reason">
+        </div>
+        
+        <div class="form-group">
           <label for="barriers_to_taking_loan">What are the barriers/challenges that you think will hinder you from taking a loan from Nairobi Biashara fund?</label>
           <input type="text" name="barriers_to_taking_loan" id="barriers_to_taking_loan">
-        </p>
-        <p>
+        </div>
+
+        <div class="form-group">
           <label for="how_to_address_barriers">How should the identified barriers/challenges be addressed?</label>
           <input type="text" name="how_to_address_barriers" id="how_to_address_barriers">
-        </p>
-        <p>
+        </div>
+
+        <div class="form-group">
           <label for="actions_needed_from_fund">What actions do you think are needed from Nairobi Bashara fund, to contribute to creating an enabling environment for women/youth and PWDs, to participate in business in Kenya?</label>
           <input type="text" name="actions_needed_from_fund" id="actions_needed_from_fund">
-        </p>
-        <p>
-          <label for="belongs_to_group">Do you belong to any registered or none registered common interest group/associations?</label>
-          <select name="belongs_to_group" id="belongs_to_group">
-            <option value="--Select--">--Select--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </p>
-        <p>
-          <label for="group_name">If yes to belongs to group, please give detail (group name, registration number and date of registration)</label>
-          <input type="text" name="group_name" id="group_name" style="display:none;">
-        </p>
-        <p>
-          <label for="belongs_to_social_group">Do you belong to any registered or non-registered social group?</label>
-          <select name="belongs_to_social_group" id="belongs_to_social_group">
-            <option value="--Select--">--Select--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </p>
-        <p>
-          <label for="social_group_name">If yes to belongs to social group, please give detail (group name, registration number and date of registration)</label>
-          <input type="text" name="social_group_name" id="social_group_name" style="display:none;">
-        </p>
-        <p>
-          <input type="text" id="coordinates">
-        </p>
-        <p>
-          <input type="submit" name="submit" value="Submit" />
-        </p>
-      </div>
-    </form>
+        </div>
 
+        <div class="form-group">
+          <label for="belongs_to_group">Do you belong to any registered or none registered common interest group/associations?</label>
+          <select class="form-control" name="belongs_to_group" id="belongs_to_group">
+            <option value="--Select--">--Select--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="group_name">If yes to belongs to group, please give detail (group name, registration number and date of registration)</label>
+          <input type="text" name="group_name" id="group_name" >
+        </div>
+
+        <div class="form-group">
+          <label for="belongs_to_social_group">Do you belong to any registered or non-registered social group?</label>
+          <select class="form-control" name="belongs_to_social_group" id="belongs_to_social_group">
+            <option value="--Select--">--Select--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="social_group_name">If yes to belongs to social group, please give detail (group name, registration number and date of registration)</label>
+          <input type="text" name="social_group_name" id="social_group_name" >
+        </div>
+
+        <div class="form-group">
+          <input type="hidden" id="coordinates">
+        </div>
+
+        <div>
+          <input type="submit" name="submit" value="Submit" />
+        </div>
+      </section>   
+    </form>
+    
   </div>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <script>
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            document.getElementById("coordinates").value = `${latitude}, ${longitude}`;
-        }, function(error) {
-            console.log("Geolocation error:", error);
-        });
-    } else {
-        console.log("Geolocation is not supported in this browser.");
-    }
-  </script>
-  <script>
-    $(document).ready(function() {
-        $('#form').submit(function(event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                url: 'process.php',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    console.log("Response received:", response);
-
-                    try {
-                        var responseObject = JSON.parse(response);
-                        if (typeof responseObject === 'object' && 'success' in responseObject) {
-                            if (responseObject.success) {
-                                alert('Your response has been submitted successfully!');
-                            } else {
-                                alert(responseObject.message || 'There was an error submitting your response. Please try again later.');
-                            }
-                        } 
-                    } catch (e) {
-                        console.error("Error parsing JSON response:", e);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("AJAX request error:", status, error); // Log the error for debugging
-                }
-            });
-        });
-    });
-  </script>
-
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-column">
@@ -285,6 +292,60 @@
       <p>Copyright &copy; 2023 Nairobi County Government. All rights reserved.</p>
     </div>
   </footer>
+
+  
+  <script>
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        document.getElementById("coordinates").value = `${latitude}, ${longitude}`;
+      }, function(error) {
+        console.log("Geolocation error:", error);
+      });
+    } else {
+      console.log("Geolocation is not supported in this browser.");
+    }
+  </script>
+  <script>
+    $(document).ready(function() {
+        $('#form').submit(function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+              url: 'process.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log("Response received:", response);
+
+                    try {
+                        var responseObject = JSON.parse(response);
+                        if (typeof responseObject === 'object' && 'success' in responseObject) {
+                          if (responseObject.success) {
+                                alert('Your response has been submitted successfully!');
+                            } else {
+                                alert(responseObject.message || 'There was an error submitting your response. Please try again later.');
+                            }
+                        } 
+                    } catch (e) {
+                        console.error("Error parsing JSON response:", e);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX request error:", status, error); // Log the error for debugging
+                }
+            });
+        });
+    });
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>
