@@ -1,3 +1,64 @@
+$(document).ready(function() {
+  $('#disability_specification').hide();
+  
+  $('#disability').on('change', function() {
+    if ($(this).val() === 'yes') {
+      $('#disability_specification').show();
+    } else {
+      $('#disability_specification').hide();
+    }
+  });
+});
+
+$(document).ready(function(){
+    $('.sect-b').hide();
+    $('.sect-c').hide();
+    
+    $('#open-sect-b').on('click', function(){
+        $('.sect-b').show();
+        $('.sect-a').hide();
+    })
+
+    $('#open-sect-c').on('click', function(){
+        $('.sect-c').show();
+        $('.sect-a').hide();
+        $('.sect-b').hide();
+    })
+});
+
+$(document).ready(function() {
+    $('#form').submit(function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+          url: 'process.php',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log("Response received:", response);
+
+                try {
+                    var responseObject = JSON.parse(response);
+                    if (typeof responseObject === 'object' && 'success' in responseObject) {
+                      if (responseObject.success) {
+                            alert('Your response has been submitted successfully!');
+                        } else {
+                            alert(responseObject.message || 'There was an error submitting your response. Please try again later.');
+                        }
+                    } 
+                } catch (e) {
+                    console.error("Error parsing JSON response:", e);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX request error:", status, error); // Log the error for debugging
+            }
+        });
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('exportCSV').addEventListener('click', function () {
         exportTableToCSV();
