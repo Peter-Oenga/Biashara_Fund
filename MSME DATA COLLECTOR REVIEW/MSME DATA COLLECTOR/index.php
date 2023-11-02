@@ -14,7 +14,7 @@
   </div> 
     
   <div class="container">  
-    <h1 class="mt-5">Nairobi County Biashara Fund Assessment Questionnaire</h1>
+    <h1 class="p-5">Nairobi County Biashara Fund Assessment Questionnaire</h1>
    
     <form id = "form" action="process.php" method="post">  
       <section class="sect-a">
@@ -148,8 +148,10 @@
             </div>
           </div>
 
-          <div>
-            <button class="btn btn-primary" id="open-sect-b">SECTION B >></button>
+          <div class="col-12">
+            <div class="form-group">
+              <button class="btn btn-primary float-right" id="open-sect-b">SECTION B</button>
+            </div>
           </div>
         </div>       
       </section>
@@ -192,10 +194,12 @@
           </select>
         </div>
 
-        <div>
-          <button id="open-sect-c" class="btn btn-primary">Section C >></button>
+        <div class="col-12">
+          <div class="form-group">
+            <button class="btn btn-primary float-right" id="open-sect-c">SECTION C</button>
+          </div>
         </div>
-                  
+                
       </section>
 
       <section class="sect-c">  
