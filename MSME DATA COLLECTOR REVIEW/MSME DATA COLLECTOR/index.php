@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,31 +17,31 @@
     <h1 class="mt-5">Nairobi County Biashara Fund Assessment Questionnaire</h1>
    
     <form id = "form" action="process.php" method="post">  
-      <section class="" style="display: none;">
+      <section class="sect-a">
         <h2>Section A: Personal Details</h2>
         <div class="row">
-          <div class="col-sm-6 col-md-4 col-4">
+          <div class="col-sm-6 col-md-4 col-12 col-lg-4">
             <div class="form-group">
               <label for="surname">Surname:</label>
               <input type="text" class="form-control" name="surname" id="surname">
             </div>
           </div>
 
-          <div class="col-sm-6 col-md-4 col-4">
+          <div class="col-sm-6 col-md-4 col-12 col-lg-4">
             <div class="form-group">
               <label for="first_name">First name:</label>
               <input type="text" class="form-control" name="first_name" id="first_name">
             </div>            
           </div>
 
-          <div class="col-sm-6 col-md-4 col-4">
+          <div class="col-sm-6 col-md-4 col-12 col-lg-4">
             <div class="form-group">
               <label for="other_name">Other name:</label>
               <input type="text" class="form-control" name="other_name" id="other_name">
             </div>
           </div>
 
-          <div class="col-sm-6 col-md-4 col-4">
+          <div class="col-sm-6 col-md-4 col-12 col-lg-4">
             <div class="form-group">
               <label for="identification_number">ID Number:</label>
               <input type="number" class="form-control" name="identification_number" id="identification_number">
@@ -73,13 +75,13 @@
 
           <div class="col-6">
             <div class="form-group">
-              <label for="disability">Do you have any disability?Specify if yes:</label>
-              <select class="form-control" class="form-control" name="disability" id="disability">
-                  <option value="">--Select--</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+              <label for="disability">Do you have any disability? Specify if yes:</label>
+              <select class="form-control" name="disability" id="disability">
+                <option value="" disabled selected>--Select--</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
-              <input type="text" class="form-control" name="disability_specification" id="disability_specification" >
+              <input type="text" class="form-control" name="disability_specification" id="disability_specification">
             </div>
           </div>
 
@@ -87,7 +89,7 @@
             <div class="form-group">
               <label for="area_of_residence">What's your area of residence?</label>
               <select class="form-control" class="form-control" name="area_of_residence" id="area_of_residence">
-                  <option value="">SELECT WARD</option>
+                  <option value="" disabled selected>SELECT WARD</option>
                   <optgroup label="Embakasi">
                       <option value="Embakasi Central">Embakasi Central</option>
                       <option value="Embakasi East">Embakasi East</option>
@@ -147,17 +149,17 @@
           </div>
 
           <div>
-            <button class="btn btn-primary" type="button">SECTION B >></button>
+            <button class="btn btn-primary" id="open-sect-b">SECTION B >></button>
           </div>
         </div>       
       </section>
 
-      <section class="" style="display: none;">
+      <section class="sect-b">
         <h2>Section B: BIASHARA FUND</h2>
         <div class="form-group">
           <label for="aware_of_fund">Are you aware of Nairobi County Biashara Fund?</label>
           <select class="form-control" class="form-control" name="aware_of_fund" id="aware_of_fund">
-            <option value="">--Select--</option>
+            <option value="" disabled selected>--Select--</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
@@ -166,7 +168,7 @@
         <div class="form-group">
           <label for="business_type">Which kind of business are you involved in?</label>
           <select class="form-control" class="form-control" name="business_type" id="business_type">
-            <option value="">--Select--</option>
+            <option value="" disabled selected>--Select--</option>
             <option value="agribusinesses_food_supplies">Agribusinesses/food supplies</option>
             <option value="manufacturing_mechanics">Manufacturing/mechanics</option>
             <option value="construction_works">Construction/works</option>
@@ -184,19 +186,19 @@
         <div class="form-group">
           <label for="business_years">How long has your business been in existence?</label>
           <select class="form-control" name="business_years" id="business_years" class="form-control">
-            <option value="">--Select--</option>
+            <option value="" disabled selected>--Select--</option>
             <option value="0_5_years">0-5 years</option>
             <option value="5_10_years">5-10</option>
           </select>
         </div>
 
         <div>
-          <button type="button" class="btn btn-primary">Section C >></button>
+          <button id="open-sect-c" class="btn btn-primary">Section C >></button>
         </div>
                   
       </section>
 
-      <section class="">  
+      <section class="sect-c">  
         <div id="affirmative_fund_questions" >         
           <label for="affirmative_fund_name">Which affirmative fund did you apply?</label>
           <input type="text" name="affirmative_fund_name" id="affirmative_fund_name">
@@ -308,40 +310,10 @@
     }
   </script>
   <script>
-    $(document).ready(function() {
-        $('#form').submit(function(event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-              url: 'process.php',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    console.log("Response received:", response);
 
-                    try {
-                        var responseObject = JSON.parse(response);
-                        if (typeof responseObject === 'object' && 'success' in responseObject) {
-                          if (responseObject.success) {
-                                alert('Your response has been submitted successfully!');
-                            } else {
-                                alert(responseObject.message || 'There was an error submitting your response. Please try again later.');
-                            }
-                        } 
-                    } catch (e) {
-                        console.error("Error parsing JSON response:", e);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("AJAX request error:", status, error); // Log the error for debugging
-                }
-            });
-        });
-    });
   </script>
 
+  <script src="script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
